@@ -698,14 +698,16 @@ function setTracksToController(
     axes: AxesInfo,
     welllog: WellLog | undefined, // JSON Log Format
     template: Template, // JSON
-    colorTables: ColorTable[] // JSON
+    colorTables: ColorTable[], // JSON
+    lithologyPatternsTable?: LithologyPatternsTable
 ): ScaleInterpolator {
     const { tracks, minmaxPrimaryAxis, primaries, secondaries } = createTracks(
         welllog,
         axes,
         template.tracks,
         template.styles,
-        colorTables
+        colorTables,
+        lithologyPatternsTable
     );
     logController.reset();
     const scaleInterpolator = createScaleInterpolator(primaries, secondaries);
@@ -924,6 +926,7 @@ export interface WellLogController {
 }
 
 import { Info } from "./InfoTypes";
+import {LithologyPatternsTable} from "../utils/lithology/LithologyTrack";
 
 export interface WellLogViewOptions {
     /**
@@ -967,6 +970,11 @@ export interface WellLogViewProps {
      * Prop containing track template data.
      */
     template: Template;
+
+    /**
+     * Table of patterns for lithology (canvas) tracks
+     */
+    lithologyPatternsTable: LithologyPatternsTable;
 
     /**
      * Prop containing color table data for discrete well logs
@@ -1264,7 +1272,6 @@ class WellLogView
         nextState: State
     ): boolean {
         if (shouldUpdateWellLogView(this.props, nextProps)) return true;
-
         if (this.state.scrollTrackPos !== nextState.scrollTrackPos) return true;
         if (this.state.errorText !== nextState.errorText) return true;
 
@@ -1446,7 +1453,8 @@ class WellLogView
                 axes,
                 this.props.welllog,
                 this.template,
-                this.props.colorTables
+                this.props.colorTables,
+                this.props.patternsTable as LithologyPatternsTable,  // TODO: fix this, need separate li
             );
             addWellPickOverlay(this.logController, this);
         }

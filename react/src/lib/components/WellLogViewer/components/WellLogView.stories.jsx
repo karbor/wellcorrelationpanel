@@ -73,7 +73,7 @@ Discrete.args = {
     id: "Well-Log-View-Discrete",
     horizontal: false,
     welllog: welllogDiscrete,
-    template: require("../../../../demo/example-data/welllog_template_2.json"),
+    template: require("../../../../demo/example-data/welllog_template_3.json"),
     viewTitle: "Well '" + welllogDiscrete.header.well + "'",
     colorTables: colorTables,
     axisTitles: axisTitles,

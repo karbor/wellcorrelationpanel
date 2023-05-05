@@ -15,8 +15,8 @@ const ComponentCode =
     '       require("../../../demo/example-data/L916MUD.json")[0], \r\n' +
     "    ]} \r\n" +
     "    template={[ \r\n" +
-    '       require("../../../demo/example-data/synclog_template.json"), \r\n' +
-    '       require("../../../demo/example-data/synclog_template.json"), \r\n' +
+    '       require("../../../demo/example-data/synclog_template_canvastest.json"), \r\n' +
+    '       require("../../../demo/example-data/synclog_template_canvastest.json"), \r\n' +
     "    } \r\n" +
     "    colorTables={colorTables} \r\n" +
     "/>";
@@ -298,36 +298,36 @@ Default.args = {
     syncTemplate: true,
     horizontal: false,
 
-    welllogs: [
-        require("../../../demo/example-data/L898MUD.json")[0],
+    welllogs: [ //         require("../../../demo/example-data/volve_logs.json")[0],
+        require("../../../demo/example-data/discrete-facies_test.json")[0],//require("../../../demo/example-data/L898MUD.json")[0],
         require("../../../demo/example-data/L916MUD.json")[0],
         require("../../../demo/example-data/Lis1.json")[0],
     ],
     templates: [
-        require("../../../demo/example-data/synclog_template.json"),
+        require("../../../demo/example-data/synclog_template_canvastest.json"),
         require("../../../demo/example-data/synclog_template.json"),
     ],
     colorTables: colorTables,
-    wellpicks: [
-        {
-            wellpick: require("../../../demo/example-data/wellpicks.json")[0],
-            name: "HORIZON",
-            colorTables: require("../../../demo/example-data/wellpick_colors.json"),
-            color: "Stratigraphy",
-        },
-        {
-            wellpick: require("../../../demo/example-data/wellpicks.json")[1],
-            name: "HORIZON",
-            colorTables: require("../../../demo/example-data/wellpick_colors.json"),
-            color: "Stratigraphy",
-        },
-        {
-            wellpick: require("../../../demo/example-data/wellpicks.json")[0],
-            name: "HORIZON",
-            colorTables: require("../../../demo/example-data/wellpick_colors.json"),
-            color: "Stratigraphy",
-        },
-    ],
+    // wellpicks: [
+    //     {
+    //         wellpick: require("../../../demo/example-data/wellpicks.json")[0],
+    //         name: "HORIZON",
+    //         colorTables: require("../../../demo/example-data/wellpick_colors.json"),
+    //         color: "Stratigraphy",
+    //     },
+    //     {
+    //         wellpick: require("../../../demo/example-data/wellpicks.json")[1],
+    //         name: "HORIZON",
+    //         colorTables: require("../../../demo/example-data/wellpick_colors.json"),
+    //         color: "Stratigraphy",
+    //     },
+    //     {
+    //         wellpick: require("../../../demo/example-data/wellpicks.json")[0],
+    //         name: "HORIZON",
+    //         colorTables: require("../../../demo/example-data/wellpick_colors.json"),
+    //         color: "Stratigraphy",
+    //     },
+    // ],
     patternsTable: {
         patternSize: 24,
         patternImages: patternImages,
